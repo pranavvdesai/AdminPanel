@@ -6,7 +6,7 @@ import CardFooter from "@material-tailwind/react/CardFooter";
 import H6 from "@material-tailwind/react/Heading6";
 import Button from '@mui/material/Button';
 
-function Domains({name, link}) {
+function Domains({name,id, link}) {
     return (
         <div>
          <Card className="  ">
@@ -16,7 +16,7 @@ function Domains({name, link}) {
             </CardBody>
 
                 <CardFooter>
-                    <Link to={`${link}${name} `}>
+                    <Link to={`${link}${id} `}>
                         
             <Button variant="contained">Read More</Button>
             </Link>

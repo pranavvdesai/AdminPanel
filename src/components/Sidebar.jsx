@@ -2,7 +2,6 @@
 import React from 'react'
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import AdminNavbar from './AdminNavbar';
 import H6 from '@material-tailwind/react/Heading6';
 
  function Sidebar() {
@@ -31,7 +30,7 @@ import H6 from '@material-tailwind/react/Heading6';
                         <ul className="flex-col min-w-full flex list-none">
                             <li className="rounded-lg mb-4">
                                 <NavLink
-                                    to="/"
+                                    to="/dashboard"
                                     exact
                                     className="flex items-center gap-4 text-sm text-gray-700 font-light px-4 py-3 rounded-lg"
                                     activeClassName="bg-gradient-to-tr from-light-green-500 to-light-green-700 text-white shadow-md"

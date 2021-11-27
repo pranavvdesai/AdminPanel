@@ -1,5 +1,5 @@
 import React from 'react';
-import { Switch, Route} from 'react-router-dom';
+import { Switch, Route , Redirect} from 'react-router-dom';
 import Sidebar from './components/Sidebar';
 import Dashboard from './pages/Dashboard';
 import Questions from './pages/Questions';
@@ -7,19 +7,26 @@ import StudentDetails from './pages/StudentDetails';
 import Footer from './components/Footer';
 import Results from './components/StudentDetails/Results';
 import questionCRUD from './components/Questions/questionCRUD';
+import Login from './components/Login/Login';
 
 function App() {
   return (
-      <div>
-          <Sidebar />
-            <div className="md:ml-64">
-                <Switch>
-                    <Route exact path="/" component={Dashboard} />
+    <div>
+      <div className="md:ml-64">
+
+        <Switch>
+          <Route exact path="/" component={Login} />
+          <>
+        <Sidebar />
+
+                    <Route exact path="/landing" component={Dashboard} />
+                    <Route exact path="/dashboard" component={Dashboard} />
                     <Route exact path="/studentDetails" component={StudentDetails} />
                     <Route exact path="/questions" component={Questions} />
-                  <Route exact path="/domains/questions/:name" component={questionCRUD} />
-                  <Route exact path="/domains/:name" component={Results} />
-                </Switch>
+                  <Route exact path="/domains/questions/:id" component={questionCRUD} />
+                  <Route exact path="/domains/:id" component={Results} />
+                  </>
+</Switch>
                 <Footer />
           </div>
       </div>
