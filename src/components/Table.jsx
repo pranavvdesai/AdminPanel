@@ -4,7 +4,7 @@ import CardHeader from '@material-tailwind/react/CardHeader';
 import CardBody from '@material-tailwind/react/CardBody';
 import Progress from '@material-tailwind/react/Progress';
 
-function Table() {
+function Table({students}) {
     return (
         <Card>
             <CardHeader color="green" contentPosition="left">
@@ -33,12 +33,14 @@ function Table() {
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
+                            {students.map(student => (
+                        
+                        <tr>
                                 <th className="border-b border-gray-200 align-middle font-light text-sm whitespace-nowrap px-2 py-4 text-left">
-                                    some name
+                                    {student.student.name}
                                 </th>
                                 <th className="border-b border-gray-200 align-middle font-light text-sm whitespace-nowrap px-2 py-4 text-left">
-                                    ece
+                                    {student.domain}
                                 </th>
                                 <th className="border-b border-gray-200 align-middle font-light text-sm whitespace-nowrap px-2 py-4 text-left">
                                     <i className="fas fa-circle fa-sm text-orange-500 mr-2"></i>{' '}
@@ -51,6 +53,10 @@ function Table() {
                                     <Progress color="red" value="60" />
                                 </th>
                             </tr>
+                        )
+
+                        )}
+                            
                             
                         </tbody>
                     </table>
