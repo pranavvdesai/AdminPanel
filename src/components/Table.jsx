@@ -3,8 +3,20 @@ import Card from '@material-tailwind/react/Card';
 import CardHeader from '@material-tailwind/react/CardHeader';
 import CardBody from '@material-tailwind/react/CardBody';
 import Progress from '@material-tailwind/react/Progress';
+import { Link } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 
-function Table({students}) {
+const map = {
+    1: "CSE",
+    2: "ECE",
+    3: "EEE",
+    4: "MECH",
+}
+function Table({ students }) {
+    const currlocation = useLocation();
+    const { pathname } = currlocation;
+    let path = pathname.split('/')[2];
+    
     return (
         <Card>
             <CardHeader color="green" contentPosition="left">
@@ -37,10 +49,12 @@ function Table({students}) {
                         
                         <tr>
                                 <th className="border-b border-gray-200 align-middle font-light text-sm whitespace-nowrap px-2 py-4 text-left">
-                                    {student.student.name}
+                                    <Link to={location => ({ ...location, pathname: `${path}/${student.student.id}` })} >
+                                        {student.student.name}
+                                        </Link>
                                 </th>
                                 <th className="border-b border-gray-200 align-middle font-light text-sm whitespace-nowrap px-2 py-4 text-left">
-                                    {student.domain}
+                                    {map[student.domain]}
                                 </th>
                                 <th className="border-b border-gray-200 align-middle font-light text-sm whitespace-nowrap px-2 py-4 text-left">
                                     <i className="fas fa-circle fa-sm text-orange-500 mr-2"></i>{' '}
