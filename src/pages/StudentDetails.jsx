@@ -1,14 +1,32 @@
 import React from 'react'
 import Domains from '../components/Domains'
 function StudentDetails() {
+    if (
+        localStorage.getItem("HH") === null ||
+        localStorage.getItem("HH") === ""
+      ) {
+        window.location.href = "/";
+      }
     const [link, setLink] = React.useState('/domains/')
     const [domains, setDomains] = React.useState([
         {
-            name: 'ECE',
+            id: '1',
+            name: 'CCE',
             description: 'Electronics and Communication Engineering',
         },
         {
-            name: 'CSE',
+            id: '2',
+            name: 'ECE',
+            description: 'Computer Science Engineering',
+        },
+        {
+            id: '3',
+            name: 'CP',
+            description: 'Computer Science Engineering',
+        },
+        {
+            id: '4',
+            name: 'ECE',
             description: 'Computer Science Engineering',
         }
     ]);
@@ -16,14 +34,15 @@ function StudentDetails() {
         <div>
             <h1>sdjkabdkjas</h1>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-2">
-                <Domains name={domains[1].name} link={link}/>
-                <Domains name={domains[0].name} link={link}/>
-                <Domains name={domains[1].name} link={link}/>
+                <Domains name={domains[0].name} id={domains[0].id} link={link}/>
+                <Domains name={domains[1].name} id={domains[1].id} link={link}/>
+                <Domains name={domains[2].name} id={domains[2].id} link={link}/>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-2 mt-12">
-            <Domains name={domains[1].name}/>
-                <Domains name={domains[0].name} link={link}/>
-                <Domains name={domains[1].name} link={link}/>
+                              
+                <Domains name={domains[1].name} id={domains[0].id} link={link}/>
+                <Domains name={domains[0].name} id={domains[0].id} link={link}/>
+                <Domains name={domains[1].name} id={domains[0].id} link={link}/>
             </div>
         </div>
     )
