@@ -39,7 +39,7 @@ function CardComp({ ques }) {
              <Link to="/questions">
         <img src={arrow} alt="arrow" className="text-green-600 bg-black absolute top-32 px-3 md:px-8 " />
             </Link>
-        <Grid className="cardContainer mt-20 ">
+        <Grid className="cardContainer mt-4 ">
                 <Card className="bg-green-700 py-7">
                 <form
       onSubmit={(e) => {
