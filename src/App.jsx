@@ -8,6 +8,7 @@ import Footer from './components/Footer';
 import Results from './components/StudentDetails/Results';
 import questionCRUD from './components/Questions/questionCRUD';
 import Login from './components/Login/Login';
+import StudentResult from './components/StudentDetails/StudentResult';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
                     <Route exact path="/questions" component={Questions} />
                   <Route exact path="/domains/questions/:id" component={questionCRUD} />
                   <Route exact path="/domains/:id" component={Results} />
+                  <Route exact path="/domains/:id/:id" component={StudentResult} />
                   </>
 </Switch>
                 <Footer />
