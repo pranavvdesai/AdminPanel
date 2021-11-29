@@ -37,10 +37,16 @@ function Table({ students }) {
                                     Status
                                 </th>
                                 <th className="px-2 text-purple-500 align-middle border-b border-solid border-gray-200 py-3 text-sm whitespace-nowrap font-light text-left">
-                                    marks
+                                    MCQ marks
                                 </th>
                                 <th className="px-2 text-purple-500 align-middle border-b border-solid border-gray-200 py-3 text-sm whitespace-nowrap font-light text-left">
-                                    Completion
+                                    Long Ans Marks
+                                </th>
+                                <th className="px-2 text-purple-500 align-middle border-b border-solid border-gray-200 py-3 text-sm whitespace-nowrap font-light text-left">
+                                    Total
+                                </th>
+                                <th className="px-2 text-purple-500 align-middle border-b border-solid border-gray-200 py-3 text-sm whitespace-nowrap font-light text-left">
+                                    Comments
                                 </th>
                             </tr>
                         </thead>
@@ -60,12 +66,18 @@ function Table({ students }) {
                                     <i className="fas fa-circle fa-sm text-orange-500 mr-2"></i>{' '}
                                     pending
                                 </th>
-                                <th className="border-b border-gray-200 align-middle font-light text-sm whitespace-nowrap px-2 py-4 text-left">
-                                    100
+                                <th className="border-b border-gray-200 align-middle font-light text-sm whitespace-nowrap px-2 py-4 text-center">
+                                    {student.MCQ_score}
                                 </th>
+                                <th className="border-b border-gray-200 align-middle font-light text-sm whitespace-nowrap px-2 py-4 text-cenetr">
+                                {student.Long_Ans_Score}
+                                    </th>
+                                <th className="border-b border-gray-200 align-middle font-light text-sm whitespace-nowrap px-2 py-4 text-center">
+                                {student.Total}
+                                    </th>
                                 <th className="border-b border-gray-200 align-middle font-light text-sm whitespace-nowrap px-2 py-4 text-left">
-                                    <Progress color="red" value="60" />
-                                </th>
+                                {student.comments}
+                                    </th>
                             </tr>
                         )
 
