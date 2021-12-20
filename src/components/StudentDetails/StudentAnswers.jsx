@@ -5,6 +5,7 @@ function StudentAnswers({ answers }) {
     const [checked, isChecked] = useState(false);
     const [marks, setMarks] = useState(0);
     const [id, setID] = useState(0);
+    const [btn, setColor] = useState('yellow');
     const location = useLocation();
     const { pathname } = location;
     let user = parseInt(pathname.split('/')[3]);
@@ -13,7 +14,7 @@ function StudentAnswers({ answers }) {
     var comments = "fnewfbjkebf"
     function click(){
         isChecked(!checked);
-        setID(answers.id)
+        setID(answers.question.id)
     }
     function Eval(e) {
         e.preventDefault();
@@ -22,7 +23,7 @@ function StudentAnswers({ answers }) {
             question: id,
             domain,
             marks,
-            comments
+            checked
         }, {
             headers: {
                 'content-type': 'application/json',
@@ -30,6 +31,7 @@ function StudentAnswers({ answers }) {
             }
         })
             .then(response => {
+                setColor('red');
                 console.log(response);
             })
             .catch(error => {
@@ -57,9 +59,11 @@ function StudentAnswers({ answers }) {
                         click
                         } ></input>
                     </div>
-                    <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={Eval}>
+                    {answers.question.ques_type === 1 && <button className={`bg-${btn}-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded`} onClick={Eval}>
                     Evaluate
                 </button>
+                        }
+                    
                 </div>
                 
             </div>

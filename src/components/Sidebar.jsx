@@ -13,7 +13,7 @@ import H6 from '@material-tailwind/react/Heading6';
                 setShowSidebar={setShowSidebar}
             /> */}
             <div
-                className={`h-screen fixed top-0 md:left-0 ${showSidebar} overflow-y-auto flex-row flex-nowrap overflow-hidden shadow-xl bg-white w-64 z-10 py-4 px-6 transition-all duration-300`}
+                className={`h-screen fixed top-0 md:left-0 ${showSidebar} overflow-y-auto flex-row flex-nowrap overflow-hidden shadow-xl bg-black w-64 z-10 py-4 px-6 transition-all duration-300`}
             >
                 <div className="flex-col items-stretch min-h-full flex-nowrap px-0 relative">
                     <a
@@ -22,7 +22,7 @@ import H6 from '@material-tailwind/react/Heading6';
                         rel="noreferrer"
                         className="mt-2 text-center w-full inline-block"
                     >
-                        <H6 color="gray">IETE Admin Panel</H6>
+                        <H6 color="white">IETE Admin Panel</H6>
                     </a>
                     <div className="flex flex-col">
                         <hr className="my-4 min-w-full" />
@@ -32,8 +32,8 @@ import H6 from '@material-tailwind/react/Heading6';
                                 <NavLink
                                     to="/dashboard"
                                     exact
-                                    className="flex items-center gap-4 text-sm text-gray-700 font-light px-4 py-3 rounded-lg"
-                                    activeClassName="bg-gradient-to-tr from-light-green-500 to-light-green-700 text-white shadow-md"
+                                    className="flex items-center gap-4 text-sm text-white font-light px-4 py-3 rounded-lg"
+                                    activeClassName="bg-gradient-to-tr from-green-500 to-green-700 text-white shadow-md"
                                 >
                                     Dashboard
                                 </NavLink>
@@ -41,8 +41,8 @@ import H6 from '@material-tailwind/react/Heading6';
                             <li className="rounded-lg mb-2">
                                 <NavLink
                                     to="/studentDetails"
-                                    className="flex items-center gap-4 text-sm text-gray-700 font-light px-4 py-3 rounded-lg"
-                                    activeClassName="bg-gradient-to-tr from-light-green-500 to-light-green-700  text-white shadow-md"
+                                    className="flex items-center gap-4 text-sm text-white font-light px-4 py-3 rounded-lg"
+                                    activeClassName="bg-gradient-to-tr from-green-500 to-green-700  text-white shadow-md"
                                 >
                                     StudentDetails
                                 </NavLink>
@@ -50,8 +50,8 @@ import H6 from '@material-tailwind/react/Heading6';
                             <li className="rounded-lg mb-2 ">
                                 <NavLink
                                     to="/questions"
-                                    className="flex items-center gap-4 text-sm text-gray-700 font-light px-4 py-3 rounded-lg"
-                                    activeClassName="bg-gradient-to-tr from-light-green-500 to-light-green-700  text-white shadow-md"
+                                    className="flex items-center gap-4 text-sm text-white font-light px-4 py-3 rounded-lg"
+                                    activeClassName="bg-gradient-to-tr from-green-500 to-green-700  text-white shadow-md"
                                 >
                                    Questions
                                 </NavLink>
