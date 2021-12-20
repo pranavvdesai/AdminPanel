@@ -9,6 +9,7 @@ import Results from './components/StudentDetails/Results';
 import questionCRUD from './components/Questions/questionCRUD';
 import Login from './components/Login/Login';
 import StudentResult from './components/StudentDetails/StudentResult';
+import Navbar from './components/Navbar/Navbar';
 
 function App() {
   return (
@@ -18,7 +19,8 @@ function App() {
         <Switch>
           <Route exact path="/" component={Login} />
           <>
-        <Sidebar />
+            <Sidebar />
+            <Navbar />
 
                     <Route exact path="/landing" component={Dashboard} />
                     <Route exact path="/dashboard" component={Dashboard} />
@@ -29,7 +31,7 @@ function App() {
                   <Route exact path="/domains/:id/:id" component={StudentResult} />
                   </>
 </Switch>
-                <Footer />
+                {/* <Footer /> */}
           </div>
       </div>
   );
