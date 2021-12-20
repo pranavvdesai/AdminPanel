@@ -63,16 +63,26 @@ import { Bar } from "react-chartjs-2";
   };
   return (
     <>
-      <div className=" grid grid-cols-1 xl:grid-cols-5">
-        <div className="xl:col-start-1 xl:col-end-3 px-4 mb-14">
+      <div className=" mt-10 grid grid-cols-1 xl:grid-cols-5">
+        <div className="xl:col-start-1 xl:col-end-4 px-4 mb-14">
           <h1>Domains</h1>
           <Bar data={data1} options={options} />
         </div>
-        <div className="xl:col-start-3 xl:col-end-5 px-4 mb-14 ">
+        <div className="xl:col-start-4 xl:col-end-6 px-4 mb-14 ">
           <h1>Students</h1>
           <Bar data={data2} options={options} />
         </div>
       </div>
+      {/* <div className=" flex flex-col max-h-10 max-w-md align-middle ">
+        <div className=" px-4 mb-14 align-middle">
+          <h1>Domains</h1>
+          <Bar data={data1} options={options} />
+        </div>
+        <div className="px-4 mb-14 ">
+          <h1>Students</h1>
+          <Bar data={data2} options={options} />
+        </div>
+      </div> */}
       
     </>
   );
