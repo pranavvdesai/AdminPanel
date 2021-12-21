@@ -8,11 +8,11 @@ import Button from '@mui/material/Button';
 
 function Domains({name,id, link}) {
     return (
-        <div>
-         <Card className="  ">
+        <div className=" px-4 mb-2">
+         <Card className=" bg-gray-700 border-green-500 ">
 
-            <CardBody className="  ">
-                    <H6 color="gray">{ name}</H6>
+            <CardBody className=" text-white  ">
+                    <H6 color="white">{ name}</H6>
             </CardBody>
 
                 <CardFooter>
