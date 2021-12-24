@@ -48,8 +48,8 @@ function StudentAnswers({ answers }) {
         <div className="flex flex-col justify-items-center align-middle mb-6 bg-gray-800 p-4 ">
                
                 <div className="mb-1">
-                    <div className="flex flex-col justify-items-center align-middle">
-                    <span className="mr-2 border-b-2 border-green-700 text-green-800 rounded-md p-1 text-black">Question:</span>
+                    <div className="flex flex-col justify-items-center align-middle mb-1">
+                    <span className="mr-2 border-b-2 border-green-700 text-green-600 rounded-md p-1">Question:</span>
 
                             </div>
                     <span>
@@ -70,9 +70,9 @@ function StudentAnswers({ answers }) {
                    
                 </div>
                 <div className="flex flex-col border-t-2 border-green-700 mb-2 ">
-               <div className=" mt-2">
+               <div className=" mt-2 mb-1">
                <span className="mr-2 mt-2 rounded-md p-1 mr-7 ">Marks:</span>   
-                       <input type="number" className="borde rounded-md bg-black border-green-700 p-1 text-xs" placeholder="Enter the marks" onChange={(e) => setMarks(parseInt(e.target.value))}></input>
+                       <input type="number" className="border-2 rounded-md bg-black border-green-700 p-1 text-xs" placeholder="Enter the marks" onChange={(e) => setMarks(parseInt(e.target.value))}></input>
                    </div>
                    <div>
                    <span className="mr-2    rounded-md p-1 ">Checked?</span>   
@@ -80,7 +80,7 @@ function StudentAnswers({ answers }) {
                        click
                        } ></input>
                    </div>
-                   {answers.question.ques_type === 1 && <button className={`bg-${btn}-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-24`} onClick={Eval}>
+                   {answers.question.ques_type === 1 && <button className={`bg-${btn}-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-24 mt-2`} onClick={Eval}>
                    Evaluate
                </button>
                     }
