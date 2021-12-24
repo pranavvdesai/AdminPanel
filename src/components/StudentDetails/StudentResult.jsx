@@ -26,13 +26,13 @@ function StudentResult() {
             .catch((error) => console.error(error.response));
         
       }, []);
-    return (
-        <div>
+  return (
+  <div className="">
             {data.map((item) => (
                 <StudentAnswers answers={item} />
                 
             ))}
-        </div>
+  </div>
     )
 }
 
