@@ -1,5 +1,8 @@
 import React, {useState} from 'react'
 import axios from 'axios';
+import Card from '@material-tailwind/react/Card';
+import CardHeader from '@material-tailwind/react/CardHeader';
+import CardBody from '@material-tailwind/react/CardBody';
 import {useLocation} from 'react-router-dom';
 function StudentAnswers({ answers }) {
     const [checked, isChecked] = useState(false);
@@ -42,31 +45,40 @@ function StudentAnswers({ answers }) {
     console.log(checked)
     return (
         <div>
-            <div className="flex flex-col">
-                <div>
-                {answers.question.ques_main}
+        <div className="flex flex-col justify-items-center align-middle mb-6 ">
+               
+               <div>
+               <span className="mr-2 bg-green-400 border-2 ">Question:</span>   
+                  {answers.question.ques_main}
+               </div>
+               <div className="flex ">
+                   <div>
+                       Answer: 
+                       {answers.answer}
+                   </div>
+                   
+                   
+                   
                 </div>
-                <div className="flex ">
-                    <div>
-                        {answers.answer}
+                <div className="flex flex-col  ">
+               <div>
+                       Marks: 
+                       <input type="number" className="border border-yellow-500" onChange={(e) => setMarks(parseInt(e.target.value))}></input>
+                   </div>
+                   <div>
+                       checked?<input type="checkbox" className="border-green-500" onClick={
+                       click
+                       } ></input>
+                   </div>
+                   {answers.question.ques_type === 1 && <button className={`bg-${btn}-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-24`} onClick={Eval}>
+                   Evaluate
+               </button>
+                    }
                     </div>
-                    <div>
-                        
-                        <input type="number" className="border border-yellow-500" onChange={(e) => setMarks(parseInt(e.target.value))}></input>
-                    </div>
-                    <div>
-                        <input type="checkbox" className="border-green-500" onClick={
-                        click
-                        } ></input>
-                    </div>
-                    {answers.question.ques_type === 1 && <button className={`bg-${btn}-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded`} onClick={Eval}>
-                    Evaluate
-                </button>
-                        }
+        </div>
                     
-                </div>
-                
-            </div>
+     
+          
         </div>
     )
 }
