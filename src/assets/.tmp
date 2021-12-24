@@ -1,0 +1,31 @@
+{/* 
+            <div className="flex flex-col">
+               
+                <div>
+                Question:   
+                   {answers.question.ques_main}
+                </div>
+                <div className="flex ">
+                    <div>
+                        Answer: 
+                        {answers.answer}
+                    </div>
+                    
+                    <div>
+                        Marks: 
+                        <input type="number" className="border border-yellow-500" onChange={(e) => setMarks(parseInt(e.target.value))}></input>
+                    </div>
+                    <div>
+                        <input type="checkbox" className="border-green-500" onClick={
+                        click
+                        } ></input>
+                    </div>
+                    {answers.question.ques_type === 1 && <button className={`bg-${btn}-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded`} onClick={Eval}>
+                    Evaluate
+                </button>
+                        }
+                    
+                </div>
+                
+            </div> */}
+        {/* </div> */}
