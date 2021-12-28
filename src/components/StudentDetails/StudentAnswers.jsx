@@ -34,7 +34,18 @@ function StudentAnswers({ answers }) {
             }
         })
             .then(response => {
-                setColor('red');
+                if (response.data.message) {
+                    setColor('green');
+                    alert(response.data.message);
+                
+                }
+                else {
+                    if (response.data.error) {
+                        console.log(response.data.error);
+                        setColor('red');
+                        alert(response.data.error);
+                    }
+                }
                 console.log(response);
             })
             .catch(error => {
