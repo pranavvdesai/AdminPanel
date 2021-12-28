@@ -18,12 +18,12 @@ function Table({ students }) {
     let path = pathname.split('/')[2];
     
     return (
-        <Card>
+        <Card color=" black" className=" bg-black">
             <CardHeader color="green" contentPosition="left">
                 <h2 className="text-white text-2xl">Result Table</h2>
             </CardHeader>
-            <CardBody>
-                <div className="overflow-x-auto">
+            <CardBody >
+                <div className="overflow-x-auto" >
                     <table className="items-center w-full bg-transparent border-collapse">
                         <thead>
                             <tr>
