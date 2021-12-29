@@ -13,14 +13,22 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import axios from 'axios';
+import { useSnackbar } from 'notistack';
+import Slide from '@material-ui/core/Slide';
+import { withStyles } from "@material-ui/core/styles";
 
 const theme = createTheme();
 
-
-export default function Login() {
+const styles = theme => ({
+  multilineColor:{
+      color:'red'
+  }
+});
+export default function Login({classes}) {
     const [name, setName ] = React.useState('');
   const [password, setPassword] = React.useState('');
   const [logged, isLogged] = React.useState(false);
+  const { enqueueSnackbar, closeSnackbar } = useSnackbar();
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -37,81 +45,53 @@ export default function Login() {
 
         console.log(response);
         if (response.data.jwt) {
+          enqueueSnackbar('Logged in Succesfully', {
+            variant: 'success',
+            autoHideDuration: 2000,
+            anchorOrigin: {
+              vertical: 'top',
+              horizontal: 'right',
+            },
+            TransitionComponent: Slide,
+          })
           localStorage.setItem("HH", response.data.jwt);
           isLogged(true);
           window.location.href = "/landing";
         }
         console.log(response.data.jwt);
         return response.data;
-      }).catch((error) => console.log(error));
-
+      }).catch((error) => {
+        enqueueSnackbar('Invalid Credentials', {
+          variant: 'error',
+          autoHideDuration: 2000,
+          anchorOrigin: {
+            vertical: 'top',
+            horizontal: 'right',
+          },
+          TransitionComponent: Slide,
+        })
+      }
+      );
+    
     }
   return (
     <div className=" md:-ml-64">
-    <ThemeProvider theme={theme}>
-      <Container component="main" maxWidth="xs">
-        <CssBaseline />
-        <Box
-          sx={{
-            marginTop: 8,
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-          }}
-        >
-          <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
-            <LockOutlinedIcon />
-          </Avatar>
-          <Typography component="h1" variant="h5">
-            Sign in
-          </Typography>
-          <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
-            <TextField
-              margin="normal"
-              required
-              fullWidth
-              id="email"
-              label="Email Address"
-              name="email"
-              autoComplete="email"
-              autoFocus
-              onChange={(e) => setName(e.target.value)}
-            />
-            <TextField
-              margin="normal"
-              required
-              fullWidth
-              name="password"
-              label="Password"
-              type="password"
-              id="password"
-              autoComplete="current-password"
-              onChange={(e) => setPassword(e.target.value)}
-            />
-           <Button
-                  type="submit"
-                  fullWidth
-                  variant="contained"
-                  sx={{ mt: 3, mb: 2 }}
-                >
-                  Sign In
-                </Button>
-            <Grid container>
-              <Grid item xs>
-                <Link href="#" variant="body2">
-                  Forgot password?
-                </Link>
-              </Grid>
-              <Grid item>
-                <Link href="#" variant="body2">
-                  {"Don't have an account? Sign Up"}
-                </Link>
-              </Grid>
-            </Grid>
-          </Box>
-        </Box>
-      </Container>
-      </ThemeProvider>
+           
+      <div className="flex items-center justify-center h-screen">
+  <div className="bg-gray-800 flex flex-col w-80 border border-gray-900 rounded-lg px-8 py-10">
+  <div className="text-white mt-10">
+    <h1 className="font-bold text-4xl">Login</h1>
+    <p className="font-semibold">Admin Panel</p>
+  </div>
+  <form className="flex flex-col space-y-8 mt-10" onSubmit={handleSubmit}>
+    <input type="text" placeholder="Email" name="email" class="border rounded-lg py-3 px-3 bg-gray-700 border-gray-700 placeholder-gray-500"               onChange={(e) => setName(e.target.value)}
+/>
+    <input type="password" placeholder="Password" name="password" class="border rounded-lg py-3 px-3 bg-gray-700 border-gray-700 placeholder-gray-500"               onChange={(e) => setPassword(e.target.value)}
+ />
+    <button type="submit" className="border border-blue-500 bg-blue-500 text-white rounded-lg py-3 font-semibold">Submit</button>
+  </form>
+</div>
+</div>
       </div>
   );
 }
