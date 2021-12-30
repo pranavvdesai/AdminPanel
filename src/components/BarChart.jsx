@@ -65,11 +65,11 @@ import { Bar } from "react-chartjs-2";
     <>
       <div className=" mt-10 grid grid-cols-1 xl:grid-cols-5">
         <div className="xl:col-start-1 xl:col-end-4 px-4 mb-14">
-          <h1>Domains</h1>
+        <h1 className=" mb-5 ml-3 text-green-700 semi-bold text-3xl  w-1/2  border-b-4 border-green-700 p-2">Domains</h1>
           <Bar data={data1} options={options} />
         </div>
         <div className="xl:col-start-4 xl:col-end-6 px-4 mb-14 ">
-          <h1>Students</h1>
+        <h1 className=" mb-5 ml-3 text-green-700 semi-bold text-3xl w-1/2 border-b-4 border-green-700 p-2">Students</h1>
           <Bar data={data2} options={options} />
         </div>
       </div>
