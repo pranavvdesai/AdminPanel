@@ -88,7 +88,7 @@ export default function Login({classes}) {
 />
     <input type="password" placeholder="Password" name="password" class="border rounded-lg py-3 px-3 bg-gray-700 border-gray-700 placeholder-gray-500"               onChange={(e) => setPassword(e.target.value)}
  />
-    <button type="submit" className="border border-blue-500 bg-blue-500 text-white rounded-lg py-3 font-semibold">Submit</button>
+    <button type="submit" className="border border-green-500 bg-green-500 text-white rounded-lg py-3 font-semibold">Submit</button>
   </form>
 </div>
 </div>
