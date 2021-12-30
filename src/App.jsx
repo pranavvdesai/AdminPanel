@@ -20,7 +20,6 @@ function App() {
           <Route exact path="/" component={Login} />
           <>
             <Sidebar />
-            <Navbar />
 
                     <Route exact path="/landing" component={Dashboard} />
                     <Route exact path="/dashboard" component={Dashboard} />
