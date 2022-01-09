@@ -19,7 +19,9 @@ function Domains({name,id, link}) {
                 <CardFooter>
                     <Link to={`${link}${id} `}>
                         
-            <Button variant="contained" className=" bg-green-700">Read More</Button>
+            <Button style={{
+        backgroundColor: "#21b6ae",
+    }} variant="contained" className=" bg-green-700">Read More</Button>
             </Link>
 
             </CardFooter>
