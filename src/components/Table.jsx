@@ -5,7 +5,7 @@ import CardBody from '@material-tailwind/react/CardBody';
 import Progress from '@material-tailwind/react/Progress';
 import { Link } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
-
+import './main.css'
 const map = {
     1: "CSE",
     2: "ECE",
@@ -18,7 +18,7 @@ function Table({ students }) {
     let path = pathname.split('/')[2];
     
     return (
-        <Card color=" black" className=" bg-black">
+        <Card color=" black" className=" bg-black card">
             <CardHeader color="green" contentPosition="left">
                 <h2 className="text-white text-2xl">Result Table</h2>
             </CardHeader>
@@ -28,13 +28,13 @@ function Table({ students }) {
                         <thead>
                             <tr>
                                 <th className="px-2 text-purple-500 align-middle border-b border-solid border-gray-200 py-3 text-sm whitespace-nowrap font-semibold text-left">
-                                    name
+                                    Name
                                 </th>
                                 <th className="px-2 text-purple-500 align-middle border-b border-solid border-gray-200 py-3 text-sm whitespace-nowrap font-semibold text-left">
-                                    domain
+                                    Domain
                                 </th>
                                 <th className="px-2 text-purple-500 align-middle border-b border-solid border-gray-200 py-3 text-sm whitespace-nowrap font-semibold text-left">
-                                    Ssemibold
+                                    Status
                                 </th>
                                 <th className="px-2 text-purple-500 align-middle border-b border-solid border-gray-200 py-3 text-sm whitespace-nowrap font-semibold text-left">
                                     MCQ marks
@@ -53,7 +53,7 @@ function Table({ students }) {
                         <tbody>
                             {students.map(student => (
                         
-                        <tr className=" text-black">
+                        <tr className=" ">
                                 <th className="border-b border-gray-200 align-middle text-sm whitespace-nowrap px-2 py-4 text-left text-green-600 font-semibold">
                                     <Link to={location => ({ ...location, pathname: `${path}/${student.student.id}` })} >
                                         {student.student.name}
