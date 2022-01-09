@@ -11,7 +11,7 @@ function StudentDetails() {
     const [domains, setDomains] = React.useState([
         {
             id: '1',
-            name: 'CCE',
+            name: 'CSE',
             description: 'Electronics and Communication Engineering',
         },
         {
@@ -21,12 +21,22 @@ function StudentDetails() {
         },
         {
             id: '3',
-            name: 'CP',
+            name: 'Photography',
             description: 'Computer Science Engineering',
         },
         {
             id: '4',
-            name: 'ECE',
+            name: 'Design',
+            description: 'Computer Science Engineering',
+        },
+        {
+            id: '5',
+            name: 'Management',
+            description: 'Computer Science Engineering',
+        },
+        {
+            id: '6',
+            name: 'Editorial',
             description: 'Computer Science Engineering',
         }
     ]);
@@ -40,9 +50,9 @@ function StudentDetails() {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-2 mt-2 lg:mt-10 mx-3">
                               
-                <Domains name={domains[1].name} id={domains[0].id} link={link}/>
-                <Domains name={domains[0].name} id={domains[0].id} link={link}/>
-                <Domains name={domains[1].name} id={domains[0].id} link={link}/>
+                <Domains name={domains[3].name} id={domains[3].id} link={link}/>
+                <Domains name={domains[4].name} id={domains[4].id} link={link}/>
+                <Domains name={domains[5].name} id={domains[5].id} link={link}/>
             </div>
         </div>
     )
