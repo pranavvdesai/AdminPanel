@@ -58,10 +58,9 @@ function StudentAnswers({ answers }) {
                       })                
                 }
                 else {
-                    console.log("adsadsad"+response)
                     if (response.data.error) {
                         console.log(response);
-                        enqueueSnackbar('Please fill up all the inputs', {
+                        enqueueSnackbar(`${response.data.error}`, {
                             variant: 'error',
                             autoHideDuration: 2000,
                             anchorOrigin: {
@@ -98,8 +97,18 @@ function StudentAnswers({ answers }) {
                         TransitionComponent: Slide,
                       })
                 }
-                console.log(error);
-                
+                // console.log(error);
+                else {
+                    enqueueSnackbar('Please fill in all the inputs', {
+                        variant: 'error',
+                        autoHideDuration: 2000,
+                        anchorOrigin: {
+                          vertical: 'top',
+                          horizontal: 'right',
+                        },
+                        TransitionComponent: Slide,
+                      })
+                }
             })
         
     }
@@ -141,16 +150,28 @@ function StudentAnswers({ answers }) {
                    
                    
                 </div>
+                {
+                    answers.question.ques_type === 0 &&
+                
+                    <div className="flex flex-col border-t-2 border-green-700 mb-2 ">
+                        <div className=" mt-2 mb-1">
+                            <span className="mr-2 mt-2 rounded-md p-1 mr-7 ">Marks: {answers.mark_ques}</span>
+                        </div>
+                        {/* <div className="mt-2 mb-1 mr-7 p-1 border-b-2 border-green-500  xl:w-1/12 w-1/12 lg:w-1/12 rounded-md"> */}
+                        <div className="mt-2 mb-1 mr-7 p-1">
+                            Type: {answers.question.ques_type === 0 ? "MCQ" : "Long Answer"}
+                        </div>
+                    </div>}
                 {answers.question.ques_type === 1 && <div className="flex flex-col border-t-2 border-green-700 mb-2 ">
                <div className=" mt-2 mb-1">
                <span className="mr-2 mt-2 rounded-md p-1 mr-7 ">Marks:</span>   
                        <input type="number" className="border-2 rounded-md bg-black border-green-700 p-1 text-xs" placeholder="Enter the marks" value={marks} onChange={(e) => setMarks(parseInt(e.target.value))}></input> / 10
                    </div>
                    <div>
-                   <span className="mr-2    rounded-md p-1 ">Checked?</span>   
+                   {/* <span className="mr-2    rounded-md p-1 ">Checked?</span>   
 <input type="checkbox" className="border-green-500" checked={checked} onClick={
                        click
-                       } ></input>
+                       } ></input> */}
                    </div>
                     <button className={`bg-${btn}-500 text-white font-bold py-2 px-4 rounded w-24 mt-2`} onClick={(e) => { Eval(e);  }}>
                    Evaluate
