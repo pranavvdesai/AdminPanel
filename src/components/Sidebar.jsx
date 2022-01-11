@@ -49,13 +49,14 @@ import  Navbar  from './Navbar/Navbar';
                                 </NavLink>
                             </li>
                             <li className="rounded-lg mb-2 ">
-                                <NavLink
-                                    to="/questions"
+                                <a
+                                    href="https://recportal-iete.herokuapp.com/admin/"
+                                    target="_blank"
                                     className="flex items-center gap-4 text-sm text-white font-light px-4 py-3 rounded-lg"
-                                    activeClassName="bg-gradient-to-tr from-green-500 to-green-700  text-white shadow-md"
+                                    activeClassName="bg-gradient-to-tr from-green-500 to-green-700  text-white shadow-md" rel="noreferrer"
                                 >
                                    Questions
-                                </NavLink>
+                                </a>
                             </li>                     
                         </ul>
                     </div>
