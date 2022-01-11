@@ -54,7 +54,7 @@ function StudentResult() {
     })
         .then(response => {
             if (response.data.message) {
-                enqueueSnackbar('Marks Updated Succesfully', {
+                enqueueSnackbar('Student Evaluated', {
                     variant: 'success',
                     autoHideDuration: 2000,
                     anchorOrigin: {
@@ -83,28 +83,7 @@ function StudentResult() {
             console.log(response);
         })
         .catch(error => {
-            if (error.response.status === 403) { 
-                enqueueSnackbar('Awarded marks cannot be more than max marks', {
-                    variant: 'error',
-                    autoHideDuration: 2000,
-                    anchorOrigin: {
-                      vertical: 'top',
-                      horizontal: 'right',
-                    },
-                    TransitionComponent: Slide,
-                  })
-            }
-            if (error.response.status === 404) { 
-                enqueueSnackbar('Please fill in all the inputs', {
-                    variant: 'error',
-                    autoHideDuration: 2000,
-                    anchorOrigin: {
-                      vertical: 'top',
-                      horizontal: 'right',
-                    },
-                    TransitionComponent: Slide,
-                  })
-            }
+            
             console.log(error);
             
         })
@@ -124,12 +103,16 @@ function StudentResult() {
                 <StudentAnswers answers={item} />
                 
             ))}
-        <div className=" mb-7">
-          comment
-          <input type="text" className="border-2 rounded-md bg-black border-green-700 p-1 text-xs" placeholder="Enter the Comments"  onChange={(e) => setComment(e.target.value)}></input>
-          <button className={`bg-yellow-500 text-white font-bold py-2 px-4 rounded w-24 mt-2`} onClick={(e) => { Eval(e);  }}>
+        <div className=" mb-7 flex flex-row justify-around">
+          <div>
+          Comment
+          <input type="text" className="border-2 rounded-md bg-black border-green-700 p-1 ml-2 text-xs" placeholder="Enter the Comments"  onChange={(e) => setComment(e.target.value)}></input>
+          </div>
+          <div className='mb-7'>
+            <button className={`bg-yellow-500 text-white font-bold py-2 px-4 rounded w-24 `} onClick={(e) => { Eval(e); }}>
                    Evaluate
-                    </button>          
+            </button> 
+            </div>  
         </div>
 
         </div>

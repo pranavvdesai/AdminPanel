@@ -64,7 +64,7 @@ function Table({ students }) {
                                 </th>
                                 <th className="border-b border-gray-200 align-middle text-sm whitespace-nowrap px-2 py-4 text-left font-semibold">
                                     <i className="fas fa-circle fa-sm text-orange-500 mr-2"></i>{' '}
-                                    pending
+                                    {student.result_checked ? 'Evaluated' : 'Pending'}
                                 </th>
                                 <th className="border-b border-gray-200 align-middle  text-sm whitespace-nowrap px-2 py-4 text-center  font-semibold">
                                     {student.MCQ_score}
