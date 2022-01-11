@@ -1,5 +1,5 @@
 import React from 'react';
-import { Switch, Route , Redirect} from 'react-router-dom';
+import { Switch, Route , Redirect, Link} from 'react-router-dom';
 import Sidebar from './components/Sidebar';
 import Dashboard from './pages/Dashboard';
 import Questions from './pages/Questions';
@@ -24,7 +24,7 @@ function App() {
                     <Route exact path="/landing" component={Dashboard} />
                     <Route exact path="/dashboard" component={Dashboard} />
                     <Route exact path="/studentDetails" component={StudentDetails} />
-                    <Route exact path="/questions" component={Questions} />
+                    <Route exact path="/questions" />
                   <Route exact path="/domains/questions/:id" component={questionCRUD} />
                   <Route exact path="/domains/:id" component={Results} />
                   <Route exact path="/domains/:id/:id" component={StudentResult} />
