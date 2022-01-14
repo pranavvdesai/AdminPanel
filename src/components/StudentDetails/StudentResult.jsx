@@ -11,14 +11,16 @@ import Slide from '@material-ui/core/Slide'
 function StudentResult() {
   let history = useHistory();
   const { enqueueSnackbar, closeSnackbar } = useSnackbar();
-
+  // const [ischecked, setChecked] = useState(false);
     const [data, setData] = useState([]);
     const location = useLocation();
     const { pathname } = location;
     let path = parseInt(pathname.split('/')[2]);
   let pathid = parseInt(pathname.split('/')[3]);
   var token = localStorage.getItem('HH');
-
+//   function click(){
+//     setChecked(!ischecked);
+// }
   const [comments, setComment] = useState('');
   console.log(comments)
     useEffect(() => {
@@ -46,6 +48,55 @@ function StudentResult() {
         user: pathid,
         domain: path,
         comments
+    }, {
+        headers: {
+            'content-type': 'application/json',
+            authorization: `Bearer ${token}`
+        }
+    })
+        .then(response => {
+            if (response.data.message) {
+                enqueueSnackbar('Comments added', {
+                    variant: 'success',
+                    autoHideDuration: 2000,
+                    anchorOrigin: {
+                      vertical: 'top',
+                      horizontal: 'right',
+                    },
+                    TransitionComponent: Slide,
+                  })                
+            }
+            else {
+                console.log("adsadsad"+response)
+                if (response.data.error) {
+                    console.log(response);
+                    enqueueSnackbar('Please fill up all the inputs', {
+                        variant: 'error',
+                        autoHideDuration: 2000,
+                        anchorOrigin: {
+                          vertical: 'top',
+                          horizontal: 'right',
+                        },
+                        TransitionComponent: Slide,
+                      })
+                    console.log(response.data.error);
+                }
+            }
+            console.log(response);
+        })
+        .catch(error => {
+            
+            console.log(error);
+            
+        })
+    
+}
+  function FinalEval(e) {
+    // console.log(ischecked)
+    e.preventDefault();
+    axios.post(`https://recportal-iete.herokuapp.com/auth/allanswerscheck/`, {
+        user: pathid,
+        domain: path,
     }, {
         headers: {
             'content-type': 'application/json',
@@ -108,9 +159,15 @@ function StudentResult() {
           Comment
           <input type="text" className="border-2 rounded-md bg-black border-green-700 p-1 ml-2 text-xs" placeholder="Enter the Comments"  onChange={(e) => setComment(e.target.value)}></input>
           </div>
+          <div>
+          <button className="bg-green-700 text-white p-2 rounded-md" onClick={Eval}>Add Comment</button>
+          </div>
+          
           <div className='mb-7'>
-            <button className={`bg-yellow-500 text-white font-bold py-2 px-4 rounded w-24 `} onClick={(e) => { Eval(e); }}>
-                   Evaluate
+          {/* <input type="checkbox" className="border-2 rounded-md bg-black border-green-700 p-1 ml-2 text-xs" onClick={click}></input> */}
+          
+            <button className={`bg-yellow-500 text-white font-bold py-2 px-4 rounded w-24 `} onClick={FinalEval}>
+                  Finish Evaluation
             </button> 
             </div>  
         </div>
