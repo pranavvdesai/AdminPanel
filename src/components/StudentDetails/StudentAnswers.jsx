@@ -155,7 +155,7 @@ function StudentAnswers({ answers }) {
                 
                     <div className="flex flex-col border-t-2 border-green-700 mb-2 ">
                         <div className=" mt-2 mb-1">
-                            <span className="mr-2 mt-2 rounded-md p-1 mr-7 ">Marks: {answers.mark_ques}</span>
+                            <span className=" mt-2 rounded-md p-1 ">Marks: {answers.mark_ques}</span>/{answers.question.mark_each}
                         </div>
                         {/* <div className="mt-2 mb-1 mr-7 p-1 border-b-2 border-green-500  xl:w-1/12 w-1/12 lg:w-1/12 rounded-md"> */}
                         <div className="mt-2 mb-1 mr-7 p-1">
@@ -165,7 +165,7 @@ function StudentAnswers({ answers }) {
                 {answers.question.ques_type === 1 && <div className="flex flex-col border-t-2 border-green-700 mb-2 ">
                <div className=" mt-2 mb-1">
                <span className="mr-2 mt-2 rounded-md p-1 mr-7 ">Marks:</span>   
-                       <input type="number" className="border-2 rounded-md bg-black border-green-700 p-1 text-xs" placeholder="Enter the marks" value={marks} onChange={(e) => setMarks(parseInt(e.target.value))}></input> / 10
+                       <input type="number" className="border-2 rounded-md bg-black border-green-700 p-1 text-xs" placeholder="Enter the marks" value={marks} onChange={(e) => setMarks(parseInt(e.target.value))}></input> / {answers.question.mark_each}
                    </div>
                    <div>
                    {/* <span className="mr-2    rounded-md p-1 ">Checked?</span>   

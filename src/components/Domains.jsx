@@ -6,7 +6,7 @@ import CardFooter from "@material-tailwind/react/CardFooter";
 import H6 from "@material-tailwind/react/Heading6";
 import Button from '@mui/material/Button';
 import './main.css'
-
+import './Domains'
 function Domains({name,id, link}) {
     return (
         <div className=" px-4 mb-2">
@@ -20,8 +20,8 @@ function Domains({name,id, link}) {
                     <Link to={`${link}${id} `}>
                         
             <Button style={{
-        backgroundColor: "#21b6ae",
-    }} variant="contained" className=" bg-green-700">Read More</Button>
+        backgroundColor: "rgba(4, 120, 87, 1)",
+    }} variant="contained" className=" bg-green-700">EVALUATE</Button>
             </Link>
 
             </CardFooter>

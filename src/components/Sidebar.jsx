@@ -6,7 +6,11 @@ import H6 from '@material-tailwind/react/Heading6';
 import  Navbar  from './Navbar/Navbar';
 
  function Sidebar() {
-    const [showSidebar, setShowSidebar] = useState('-left-64');
+     const [showSidebar, setShowSidebar] = useState('-left-64');
+     const logout = () => {
+        localStorage.removeItem('HH');
+        window.location.href = '/';
+      };
     return (
         <>
             <Navbar
@@ -57,6 +61,15 @@ import  Navbar  from './Navbar/Navbar';
                                 >
                                    Questions
                                 </a>
+                            </li>                     
+                            <li className="rounded-lg mb-2 lg:hidden block ">
+                                <button
+                                    className="flex items-center gap-4 text-sm text-white font-light px-4 py-3 rounded-lg text-green-300"
+                                    activeClassName="bg-gradient-to-tr from-green-500 to-green-700  text-white shadow-md" rel="noreferrer"
+                                    onClick={logout}
+                                >
+                                  Logout
+                                </button>
                             </li>                     
                         </ul>
                     </div>

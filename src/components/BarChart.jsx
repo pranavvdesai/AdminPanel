@@ -1,35 +1,74 @@
+import axios from "axios";
 import React from "react";
 import { Bar } from "react-chartjs-2";
+import { useEffect } from "react";
 
- function BarChart() {
+function BarChart() {
+  const [data, setData] = React.useState({});
+  useEffect(() => {
+    var token = localStorage.getItem("HH");
+    axios
+      .get("https://recportal-iete.herokuapp.com/auth/studentcount/",
+      {
+        headers: {
+            'content-type': 'application/json',
+            authorization: `Bearer ${token}`
+        }
+    })
+      .then((res) => {
+        console.log(res.data);
+        setData(res.data);
+      }
+    );
+  }, []);
+  // console.log(Object.keys(data));
+  var domains = Object.keys(data);
+  var count = Object.values(data);
+  var labelfetch = domains.slice(0, 6)
+  var countfetch = count.slice(0, 6)
+  var labelfetch2 = domains.slice(6, 8)
+  var countfetch2 = count.slice(6, 8)
+  // console.log(labels);
   const data1 = {
-    labels: ["CSE", "ECE", "HARDWARE", "CP"],
+    labels: labelfetch,
     datasets: [
       {
         label: "# Students",
-        data: [12, 19, 3, 5, 2, 3],
+        data: countfetch,
         backgroundColor: [
           "rgba(255, 99, 132, 0.2)",
           "rgba(54, 162, 235, 0.2)",
           "rgba(255, 206, 86, 0.2)",
           "rgba(75, 192, 192, 0.2)",
+          "rgba(153, 102, 255, 0.2)",
+          "rgba(255, 159, 64, 0.2)"
+
         ],
         borderColor: [
           "rgba(255, 99, 132, 1)",
           "rgba(54, 162, 235, 1)",
           "rgba(255, 206, 86, 1)",
           "rgba(75, 192, 192, 1)",
+          "rgba(153, 102, 255,1)",
+          "rgba(255, 159, 64, 1)"
         ],
         borderWidth: 1,
       },
     ],
+    options: {
+      legend: {
+        labels: {
+          fontColor: "#f00",
+        },
+      },
+    }
   };
   const data2 = {
-    labels: ["Checked", "Pending"],
+    labels: labelfetch2,
     datasets: [
       {
-        label: "# Checked",
-        data: [12, 19, 3, 5, 2, 3],
+        label: "# Students",
+        data: countfetch2,
         backgroundColor: [
           "rgba(153, 102, 255, 0.2)",
           "rgba(255, 159, 64, 0.2)",
