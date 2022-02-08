@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, {useState} from 'react';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -16,6 +16,7 @@ import axios from 'axios';
 import { useSnackbar } from 'notistack';
 import Slide from '@material-ui/core/Slide';
 import { withStyles } from "@material-ui/core/styles";
+import LoadingOverlay from "react-loading-overlay";
 
 const theme = createTheme();
 
@@ -29,8 +30,10 @@ export default function Login({classes}) {
   const [password, setPassword] = React.useState('');
   const [logged, isLogged] = React.useState(false);
   const { enqueueSnackbar, closeSnackbar } = useSnackbar();
+  const [loading, setLoading] = useState(false);
 
   function handleSubmit(e) {
+    setLoading(true);
     e.preventDefault();
       axios
         .post('https://recportal-iete.herokuapp.com/auth/adminlogin/', {
@@ -56,11 +59,13 @@ export default function Login({classes}) {
           })
           localStorage.setItem("HH", response.data.jwt);
           isLogged(true);
+          setLoading(false);
           window.location.href = "/landing";
         }
         console.log(response.data.jwt);
         return response.data;
       }).catch((error) => {
+        setLoading(false);
         enqueueSnackbar('Invalid Credentials', {
           variant: 'error',
           autoHideDuration: 2000,
@@ -75,6 +80,10 @@ export default function Login({classes}) {
     
     }
   return (
+    <LoadingOverlay
+    active={loading}
+    spinner
+  >
     <div className=" md:-ml-64">
            
       <div className="flex items-center justify-center h-screen">
@@ -93,5 +102,7 @@ export default function Login({classes}) {
 </div>
 </div>
       </div>
+      </LoadingOverlay>
+
   );
 }
