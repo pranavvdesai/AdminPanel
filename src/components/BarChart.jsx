@@ -24,10 +24,10 @@ function BarChart() {
   // console.log(Object.keys(data));
   var domains = Object.keys(data);
   var count = Object.values(data);
-  var labelfetch = domains.slice(0, 6)
-  var countfetch = count.slice(0, 6)
-  var labelfetch2 = domains.slice(6, 8)
-  var countfetch2 = count.slice(6, 8)
+  var labelfetch = domains.slice(0, 5)
+  var countfetch = count.slice(0, 5)
+  var labelfetch2 = domains.slice(5, 7)
+  var countfetch2 = count.slice(5, 7)
   // console.log(labels);
   const data1 = {
     labels: labelfetch,

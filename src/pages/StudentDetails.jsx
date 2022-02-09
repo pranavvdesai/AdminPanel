@@ -46,7 +46,7 @@ function StudentDetails() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-2 mx-3">
                 <Domains name={domains[0].name} id={domains[0].id} link={link}/>
                 <Domains name={domains[1].name} id={domains[1].id} link={link}/>
-                <Domains name={domains[2].name} id={domains[2].id} link={link}/>
+                {/* <Domains name={domains[2].name} id={domains[2].id} link={link}/> */}
             
                               
                 <Domains name={domains[3].name} id={domains[3].id} link={link}/>

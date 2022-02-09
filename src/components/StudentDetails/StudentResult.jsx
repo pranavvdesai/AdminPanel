@@ -154,19 +154,19 @@ function StudentResult() {
                 <StudentAnswers answers={item} />
                 
             ))}
-        <div className=" mb-7 flex flex-row justify-around">
-          <div>
-          Comment
+        <div className=" flex flex-col text-center md:flex-row justify-around">
+          <div className="mb-4 ">
+          Comment:
           <input type="text" className="border-2 rounded-md bg-black border-green-700 p-1 ml-2 text-xs" placeholder="Enter the Comments"  onChange={(e) => setComment(e.target.value)}></input>
           </div>
-          <div>
+          <div className="mb-4">
           <button className="bg-green-700 text-white p-2 rounded-md" onClick={Eval}>Add Comment</button>
           </div>
           
-          <div className='mb-7'>
+          <div className="mb-4 ">
           {/* <input type="checkbox" className="border-2 rounded-md bg-black border-green-700 p-1 ml-2 text-xs" onClick={click}></input> */}
           
-            <button className={`bg-yellow-500 text-white font-bold py-2 px-4 rounded w-24 `} onClick={FinalEval}>
+            <button className={`bg-green-700 text-white p-2 rounded-md `} onClick={FinalEval}>
                   Finish Evaluation
             </button> 
             </div>  

@@ -155,7 +155,7 @@ function StudentAnswers({ answers }) {
                 
                     <div className="flex flex-col border-t-2 border-green-700 mb-2 ">
                         <div className=" mt-2 mb-1">
-                            <span className=" mt-2 rounded-md p-1 ">Marks: {answers.mark_ques}</span>/{answers.question.mark_each}
+                            <span className=" mt-2 rounded-md p-1 ">Marks: {answers.mark_ques}/{answers.question.mark_each}</span>
                         </div>
                         {/* <div className="mt-2 mb-1 mr-7 p-1 border-b-2 border-green-500  xl:w-1/12 w-1/12 lg:w-1/12 rounded-md"> */}
                         <div className="mt-2 mb-1 mr-7 p-1">
