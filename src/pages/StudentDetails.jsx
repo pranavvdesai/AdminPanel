@@ -20,7 +20,7 @@ function StudentDetails() {
             description: 'Computer Science Engineering',
         },
         {
-            id: '3',
+            id: '6',
             name: 'Photography',
             description: 'Computer Science Engineering',
         },
@@ -35,7 +35,7 @@ function StudentDetails() {
             description: 'Computer Science Engineering',
         },
         {
-            id: '6',
+            id: '3',
             name: 'Editorial',
             description: 'Computer Science Engineering',
         }
