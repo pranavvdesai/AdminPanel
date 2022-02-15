@@ -31,6 +31,12 @@ function Table({ students }) {
                                     Name
                                 </th>
                                 <th className="px-2 text-purple-500 align-middle border-b border-solid border-gray-200 py-3 text-sm whitespace-nowrap font-semibold text-left">
+                                    Reg. No
+                                </th>
+                                <th className="px-2 text-purple-500 align-middle border-b border-solid border-gray-200 py-3 text-sm whitespace-nowrap font-semibold text-left">
+                                    Email
+                                </th>
+                                <th className="px-2 text-purple-500 align-middle border-b border-solid border-gray-200 py-3 text-sm whitespace-nowrap font-semibold text-left">
                                     Domain
                                 </th>
                                 <th className="px-2 text-purple-500 align-middle border-b border-solid border-gray-200 py-3 text-sm whitespace-nowrap font-semibold text-left">
@@ -58,6 +64,12 @@ function Table({ students }) {
                                     <Link to={location => ({ ...location, pathname: `${path}/${student.student.id}` })} >
                                         {student.student.name}
                                         </Link>
+                                </th>
+                                <th className="border-b border-gray-200 align-middle text-sm whitespace-nowrap px-2 py-4 text-left font-semibold">
+                                    {student.student.reg_no}
+                                </th>
+                                <th className="border-b border-gray-200 align-middle text-sm whitespace-nowrap px-2 py-4 text-left font-semibold">
+                                    {student.student.email}
                                 </th>
                                 <th className="border-b border-gray-200 align-middle text-sm whitespace-nowrap px-2 py-4 text-left font-semibold">
                                     {map[student.domain]}
