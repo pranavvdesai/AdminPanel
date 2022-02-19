@@ -150,10 +150,10 @@ function StudentResult() {
       <div className=" mt-10 ">
       <h1 className=" mb-5 ml-4 text-green-700 semi-bold text-3xl xl:w-1/6 w-1/2 lg:w-1/4 border-b-4 border-green-700 p-2 ">Answers</h1>
 
-            {data.map((item) => (
+            {data.length > 0 ? data.map((item) => (
                 <StudentAnswers answers={item} />
                 
-            ))}
+            )) : <div className="text-center text-green-700 mb-10 text-2xl">No answers</div>}
         <div className=" flex flex-col text-center md:flex-row justify-around">
           <div className="mb-4 ">
           Comment:
