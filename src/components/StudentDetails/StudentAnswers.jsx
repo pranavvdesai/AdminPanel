@@ -173,7 +173,7 @@ function StudentAnswers({ answers }) {
                        click
                        } ></input> */}
                    </div>
-                    <button className={`bg-${btn}-500 text-white font-bold py-2 px-4 rounded w-24 mt-2`} onClick={(e) => { Eval(e);  }}>
+                    <button className={`bg-green-500 text-white font-bold py-2 px-4 rounded w-24 mt-2`} onClick={(e) => { Eval(e);  }}>
                    Evaluate
                     </button>
                     </div>
